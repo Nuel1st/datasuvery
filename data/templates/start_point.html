@@ -1,0 +1,18 @@
+<!-- create_start_point.html -->
+
+{% block content %}
+<h2>Create Start Point</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="{{ start_form.chainage.id_for_label }}">Start point chainage (type: integer):</label>
+    {{ start_form.chainage }}
+    
+    <label for="{{ start_form.location.id_for_label }}">Share a location (type: map):</label>
+    {{ start_form.location }}
+
+    <label for="{{ start_form.photo.id_for_label }}">Share start point photo (type: image):</label>
+    {{ start_form.photo }}
+    
+    <button type="submit">Create Start Point</button>
+</form>
+{% endblock %}

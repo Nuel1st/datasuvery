@@ -1,0 +1,25 @@
+<!-- create_end_point.html -->
+<!-- {% load leaflet_tags %}
+{% leaflet_js %} -->
+
+{% block content %}
+
+    <h2>Create End Point</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="{{ end_form.chainage.id_for_label }}">End point chainage (type: integer):</label>
+        {{ end_form.chainage }}
+       
+        <label for="{{ end_form.location.id_for_label }}">Share a location (type: map):</label>
+        {{ end_form.location }}
+       
+        <label for="{{ end_form.photo.id_for_label }}">Share end point photo (type: image):</label>
+        {{ end_form.photo }}
+       
+        <button type="submit">Create End Point</button>
+    </form>
+  
+</body>
+</html>
+
+{% endblock %}

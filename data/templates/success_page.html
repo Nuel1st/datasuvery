@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Success Page</title>
+</head>
+<body>
+    <h2>Form Submission Successful</h2>
+    <p>Your Start Point/End Point has been created successfully.</p>
+
+    <!-- You can display the saved data if needed -->
+    {% if start_point_data %}
+    <h3>Start Point Data:</h3>
+    <p><strong>Chainage:</strong> {{ start_point_data.chainage }}</p>
+    <p><strong>Location:</strong> {{ start_point_data.location }}</p>
+    {% if start_point_data.photo %}
+    <p><strong>Photo:</strong> <img src="{{ start_point_data.photo }}" alt="Start Point Photo"></p>
+    {% endif %}
+    {% endif %}
+
+    <p>Any additional information or instructions can be provided here.</p>
+
+    <a href="{% url 'home' %}">Back to Home</a>
+</body>
+</html>
