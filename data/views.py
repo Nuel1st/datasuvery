@@ -234,6 +234,7 @@ def create_end_point(request):
     return render(request, 'end_point.html', {'end_form': form})
 
 
+
 def success_page(request):
     # Retrieve and display the saved form data from the session
     start_point_data = request.session.get('start_point_data', None)
