@@ -8,17 +8,6 @@ class My_dateForm(forms.Form):
         label='Select a date'
     )
 
-# class StartPoint(models.Model):
-#     chainage = models.IntegerField()
-#     location = gis_models.PointField()
-#     start_point_photo = models.ImageField(upload_to='start_point_photos/')
-
-# class EndPoint(models.Model):
-#     chainage = models.IntegerField()
-#     location = gis_models.PointField()
-#     end_point_photo = models.ImageField(upload_to='end_point_photos/')
-
-
 
 Activitycategory_CHOICES = [
     ('Survey_and_Design', 'Survey and Design'),
@@ -85,10 +74,6 @@ class SurveyAndDesignForm(forms.Form):
         label="Survey and Design Details"
     )
     # Add more fields as needed
-
-
-
-
 
 SITE_CHOICES =(
     ('AKUWZU', 'AWKUZU'),
@@ -665,7 +650,6 @@ MACHINERY_DRIVER_NAME_CHOICES= [
 
 class Machinery_driver_name_Form(forms.Form):
     machinery_driver_name = forms.ChoiceField(choices=MACHINERY_DRIVER_NAME_CHOICES, widget=forms.Select(attrs={'class': 'form-control'}))
-
 
 
 
