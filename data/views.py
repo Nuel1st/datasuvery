@@ -180,14 +180,13 @@ def upload_media(request):
         if media_form.is_valid():
             uploaded_file = request.FILES['file']
 
-            # Read the uploaded file and convert it to base64
             base64_data = ''
             with uploaded_file.open('rb') as file:
                 base64_data = base64.b64encode(file.read()).decode()
 
             messages.success(request, 'Media file uploaded successfully.')
 
-            return redirect('upload_success')  # Redirect to a success page for media uploads
+            return redirect('upload_success')  
 
     else:
         media_form = MediaFileForm() 
@@ -201,8 +200,7 @@ def create_start_point(request):
     if request.method == 'POST':
         form = StartPointForm(request.POST, request.FILES)
         if form.is_valid():
-            # Process the form data as needed (you can save to session or a database)
-            # For example, to save to session:
+       
             request.session['start_point_data'] = {
                 'chainage': form.cleaned_data['chainage'],
                 'location': form.cleaned_data['location'],
@@ -219,8 +217,6 @@ def create_end_point(request):
     if request.method == 'POST':
         form = EndPointForm(request.POST, request.FILES)
         if form.is_valid():
-            # Process the form data as needed (you can save to session or a database)
-            # For example, to save to session:
             request.session['end_point_data'] = {
                 'chainage': form.cleaned_data['chainage'],
                 'location': form.cleaned_data['location'],
@@ -236,12 +232,15 @@ def create_end_point(request):
 
 
 def success_page(request):
-    # Retrieve and display the saved form data from the session
+
     start_point_data = request.session.get('start_point_data', None)
     if start_point_data:
         return render(request, 'success_page.html', {'start_point_data': start_point_data})
     else:
         return HttpResponse('No start point data found.')
+
+
+        
 
 
 
